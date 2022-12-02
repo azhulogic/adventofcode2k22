@@ -33,7 +33,7 @@ def konsumption_kings(counts):
 if __name__ == "__main__":
     counts = caloric_consumer("day1\example.txt")
     print("Example  | Max calorie count: %d" % max(counts))
-    counts = caloric_consumer("day1\partone.txt")
+    counts = caloric_consumer("day1\input.txt")
     print("Part One | Max calorie count: %d" % max(counts))
     max = konsumption_kings(counts)
     print("Part Two | Top three calorie count: %d" % max)
