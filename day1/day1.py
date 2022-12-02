@@ -3,6 +3,7 @@
 # Day 1
 
 def caloric_consumer(fileName):
+    """Counts calories of elves or something, makes me hungry. O(n)"""
     calories = 0
     counts = []
 
@@ -17,6 +18,7 @@ def caloric_consumer(fileName):
     return counts
     
 def konsumption_kings(counts):
+    """Despite two for loops? Actually still O(n), maybe amortized."""
     maxima = [0,0,0]
 
     for calories in counts:
