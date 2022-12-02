@@ -2,7 +2,6 @@
 # ADVENT OF CODE 2022
 # Day 2
 
-
 def rock_paper_scissors(fileName):
     """Do you dare try to figure out what I wrote? O(n)"""
     with open(fileName) as f:
