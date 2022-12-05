@@ -1,4 +1,4 @@
-def pair_of_balls(fileName):
+def ranger_danger(fileName,full):
     count = 0
     with open(fileName) as f:
         for line in f:
@@ -11,9 +11,16 @@ def pair_of_balls(fileName):
             e = int(e)
             f = int(f)
 
-            if (c >= e and d <= f) or (c <= e and d >= f):
+            # handle full overlap
+            if full and ((c >= e and d <= f) or (c <= e and d >= f)):
+                count += 1
+            # handle partial overlap
+            elif not full and (c <= e and e <= d) or (e <= c and c <= f):
                 count += 1
     return count
 
 if __name__ == "__main__":
-    print(pair_of_balls("day4/input.txt"))
+    print("Example One | %d" % ranger_danger("day4/example.txt",True))
+    print("Part One    | %d" % ranger_danger("day4/input.txt",True))
+    print("Example Two | %d" % ranger_danger("day4/example.txt",False))
+    print("Part Two    | %d" % ranger_danger("day4/input.txt",False))
