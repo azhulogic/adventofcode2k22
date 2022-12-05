@@ -1,6 +1,5 @@
 class CratePuzzle:
     
-
     def __init__(self,fileName):
         """Constructor, initializes puzzle to be solved"""
         self.labels = []
@@ -35,11 +34,8 @@ class CratePuzzle:
             # uncomment to debug:
             # print(self.labels,crateLists,self.instructions)
 
-        pass
-
     def initialize_stacks(self,crateLists):
         """Helper function, initializes local stacks after data is parsed"""
-
         stackCount = len(self.labels)
         self.stacks = [[] for _ in range(stackCount)]
 
@@ -52,9 +48,7 @@ class CratePuzzle:
 
     def __str__(self):
         """__str__ method, gives stacks left to right <-> bottom to top"""
-
         str = ""
-
         for idx in range(len(self.labels)):
             str += self.labels[idx] + " | [" + "] -> [".join(self.stacks[idx]) + "]\n"
 
@@ -62,7 +56,6 @@ class CratePuzzle:
 
     def solve(self,craneModel):
         """Driver function for solving problem given crane model"""
-
         print("BEFORE:\n" + str(self))
 
         if craneModel == 9000:
@@ -78,7 +71,6 @@ class CratePuzzle:
     def execute_instructions_9000(self,instr):
         """Helper function for executing line instructions
         takes input of form: [move, from, to]"""
-
         # repeat "move" amount of times
         for _ in range(instr[0]):
             # pop "from" -> append "to"
@@ -86,19 +78,15 @@ class CratePuzzle:
 
     def execute_instructions_9001(self,instr):
         """Same premise as above, but pops in groupings"""
-
-        fromStack = self.stacks[instr[1]-1]
-        boxes = fromStack[-instr[0]:]       # get "move" amt of boxes
-        self.stacks[instr[1]-1] = fromStack[:-instr[0]]   # remove them from old stack
-
-        self.stacks[instr[2]-1] += boxes
+        fromStack = self.stacks[instr[1]-1]             # to avoid verbosity
+        boxes = fromStack[-instr[0]:]                   # get "move" amt of boxes
+        self.stacks[instr[1]-1] = fromStack[:-instr[0]] # remove from "from" stack
+        self.stacks[instr[2]-1] += boxes                # concatenate to "to" stack
 
 
     def get_stack_tops(self):
         """"Returns the combined string of all top crates"""
-
         message = ""
-
         for s in self.stacks:
             message += s[-1]
 
