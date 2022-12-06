@@ -1,3 +1,7 @@
+# Alex Zhu
+# ADVENT OF CODE 2022
+# Day 4
+
 def ranger_danger(fileName,full):
     count = 0
     with open(fileName) as f:

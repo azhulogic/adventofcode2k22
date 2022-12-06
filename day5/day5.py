@@ -1,3 +1,7 @@
+# Alex Zhu
+# ADVENT OF CODE 2022
+# Day 5
+
 class CratePuzzle:
     
     def __init__(self,fileName):
