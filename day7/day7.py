@@ -6,8 +6,8 @@ class FileTree:
     """file system as a tree data structure using dicts"""
 
     def __init__(self,parent,data,name) -> None:
-        self.children = {}      # {key, node} pairs
-        self.parent = parent    # points to a dict
+        self.children = {}      # {name : node} pairs
+        self.parent = parent    # points to parent node (for backtracking)
         self.data = int(data)   # int value
         self.name = name        # name of directory
 
